@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>نفس آرام | تمرین تنفس و مدیتیشن آنلاین با صدای طبیعت</title>
+<meta name="description" content="تمرین تنفس رایگان و فارسی: تنفس ۴-۷-۸، تنفس جعبه‌ای و بازدم بلند با دایره‌ی راهنما، تایمر جلسه و صدای باران، دریا، باد و جنگل. برای آرامش، تمرکز و خواب بهتر.">
+<meta name="keywords" content="تمرین تنفس, مدیتیشن, تنفس ۴-۷-۸, تنفس جعبه ای, آرامش, کاهش استرس, صدای باران, خواب">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fa_IR">
+<meta property="og:title" content="نفس آرام | تمرین تنفس و مدیتیشن آنلاین">
+<meta property="og:description" content="چند دقیقه همراه دایره نفس بکش، با صدای طبیعت.">
+<meta name="theme-color" content="#2F6F5E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='28' fill='%239CC6B5'/%3E%3Ccircle cx='32' cy='32' r='16' fill='%232F6F5E'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;800&display=swap">
+<style>
+:root{
+  --bg:#E9EEE8; --bg2:#DCE5DD; --surface:#F5F8F4; --ink:#1D2A25; --muted:#5A6A62;
+  --line:#C5D2C8; --accent:#2F6F5E; --accent-ink:#F5F8F4; --glow:#9CC6B5; --glow2:#CFE3D8;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#101714; --bg2:#15201B; --surface:#1A2621; --ink:#E2ECE6; --muted:#93A69C;
+    --line:#2A3A33; --accent:#7EC2AC; --accent-ink:#0F1A16; --glow:#3F7F6B; --glow2:#1F3A31;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#101714; --bg2:#15201B; --surface:#1A2621; --ink:#E2ECE6; --muted:#93A69C;
+  --line:#2A3A33; --accent:#7EC2AC; --accent-ink:#0F1A16; --glow:#3F7F6B; --glow2:#1F3A31;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{min-height:100%}
+body{
+  margin:0; background:radial-gradient(120% 80% at 50% 0%, var(--bg2), var(--bg) 60%) fixed, var(--bg);
+  color:var(--ink); font-family:"Vazirmatn", Tahoma, "Segoe UI", sans-serif; font-size:16px; line-height:1.8;
+  padding-inline:16px; padding-block:28px 48px;
+}
+.wrap{max-width:560px; margin:0 auto; display:flex; flex-direction:column; gap:28px}
+header{display:flex; flex-direction:column; gap:2px; text-align:center}
+h1{margin:0; font-weight:800; font-size:clamp(28px,7vw,38px); letter-spacing:-.01em; text-wrap:balance}
+.sub{margin:0; color:var(--muted); font-size:15px}
+
+.stage{position:relative; display:grid; place-items:center; aspect-ratio:1; width:min(100%,380px); max-width:100%; margin:0 auto}
+.ring{position:absolute; inset:0; border-radius:50%; border:1px dashed var(--line)}
+.ring.r2{inset:22%; border-style:solid; opacity:.6}
+.orb{
+  position:absolute; inset:6%; border-radius:50%;
+  background:radial-gradient(circle at 50% 42%, var(--glow2), var(--glow) 70%);
+  box-shadow:0 0 60px -10px var(--glow);
+  transform:scale(.55); will-change:transform;
+}
+.center{position:relative; text-align:center; display:flex; flex-direction:column; align-items:center; gap:0}
+.phase{font-size:clamp(24px,6vw,32px); font-weight:600}
+.count{font-size:clamp(40px,11vw,60px); font-weight:300; line-height:1.1; font-variant-numeric:tabular-nums}
+.hint{font-size:14px; color:var(--muted)}
+
+.status{display:flex; justify-content:center; gap:24px; color:var(--muted); font-size:14px; font-variant-numeric:tabular-nums}
+.status b{color:var(--ink); font-weight:600}
+
+.controls{display:flex; justify-content:center; gap:12px; flex-wrap:wrap}
+button{font:inherit; cursor:pointer}
+.primary{background:var(--accent); color:var(--accent-ink); border:0; border-radius:999px; padding:12px 40px; font-weight:600; font-size:17px}
+.ghost{background:transparent; color:var(--ink); border:1px solid var(--line); border-radius:999px; padding:12px 24px}
+button:focus-visible{outline:3px solid var(--glow); outline-offset:3px}
+
+.panel{background:var(--surface); border:1px solid var(--line); border-radius:20px; padding:20px; display:flex; flex-direction:column; gap:20px}
+.group{display:flex; flex-direction:column; gap:8px}
+.label{font-size:13px; color:var(--muted); font-weight:600; letter-spacing:.02em}
+.chips{display:flex; flex-wrap:wrap; gap:8px}
+.chip{background:transparent; border:1px solid var(--line); color:var(--ink); border-radius:12px; padding:8px 14px; font-size:15px; display:flex; flex-direction:column; align-items:flex-start; line-height:1.5}
+.chip small{color:var(--muted); font-size:12px; font-variant-numeric:tabular-nums}
+.chip[aria-pressed="true"]{border-color:var(--accent); background:color-mix(in srgb, var(--accent) 12%, transparent)}
+.chip[aria-pressed="true"] small{color:var(--ink)}
+.row{display:flex; align-items:center; gap:12px}
+input[type=range]{flex:1; accent-color:var(--accent)}
+.about{display:flex;flex-direction:column;gap:14px}
+.about h2{margin:0;font-size:22px;font-weight:800}
+.about h3{margin:0;font-size:17px;font-weight:600}
+.about p{margin:0;color:var(--muted)}
+.desc{margin:0; font-size:14px; color:var(--muted)}
+footer{text-align:center; color:var(--muted); font-size:13px}
+@media (prefers-reduced-motion: reduce){ .orb{transition:none!important} }
+</style>
+</head>
+<body>
+<div class="wrap" dir="rtl" lang="fa">
+  <header>
+    <h1>نفس آرام</h1>
+    <p class="sub">چند دقیقه همراه دایره نفس بکش. با دم بزرگ می‌شود و با بازدم کوچک.</p>
+  </header>
+
+  <div class="stage" aria-live="polite">
+    <div class="ring"></div>
+    <div class="ring r2"></div>
+    <div class="orb" id="orb"></div>
+    <div class="center">
+      <div class="phase" id="phase">آماده‌ای؟</div>
+      <div class="count" id="count">۴</div>
+      <div class="hint" id="hint">راحت بنشین، شانه‌ها رها</div>
+    </div>
+  </div>
+
+  <div class="status">
+    <span>زمان باقی‌مانده: <b id="left">۳:۰۰</b></span>
+    <span>دور تنفس: <b id="cycles">۰</b></span>
+  </div>
+
+  <div class="controls">
+    <button class="primary" id="start">شروع</button>
+    <button class="ghost" id="reset">از نو</button>
+  </div>
+
+  <section class="panel">
+    <div class="group">
+      <div class="label">الگوی تنفس</div>
+      <div class="chips" id="patterns"></div>
+      <p class="desc" id="pdesc"></p>
+    </div>
+    <div class="group">
+      <div class="label">مدت جلسه</div>
+      <div class="chips" id="durations"></div>
+    </div>
+    <div class="group">
+      <div class="label">صدای طبیعت</div>
+      <div class="chips" id="sounds"></div>
+      <div class="row">
+        <span class="desc">صدا</span>
+        <input type="range" id="vol" min="0" max="100" value="55" aria-label="بلندی صدا">
+      </div>
+    </div>
+  </section>
+
+
+  <section class="about" id="about">
+    <h2>تمرین تنفس برای آرامش و تمرکز</h2>
+    <p>«نفس آرام» یک ابزار رایگان تمرین تنفس و مدیتیشن به زبان فارسی است. کافی است یک الگوی تنفس و مدت جلسه را انتخاب کنی و همراه دایره نفس بکشی. نیازی به ثبت‌نام یا نصب برنامه نیست.</p>
+    <h3>تنفس ۴-۷-۸ چیست؟</h3>
+    <p>در این روش ۴ ثانیه دم می‌گیری، ۷ ثانیه نفس را نگه می‌داری و ۸ ثانیه بازدم انجام می‌دهی. بازدم طولانی به آرام شدن بدن کمک می‌کند و بسیاری از افراد آن را پیش از خواب انجام می‌دهند.</p>
+    <h3>تنفس جعبه‌ای چیست؟</h3>
+    <p>تنفس جعبه‌ای چهار مرحله‌ی برابر دارد: دم، نگه داشتن، بازدم و مکث، هر کدام ۴ ثانیه. این روش برای تمرکز پیش از کار، امتحان یا یک جلسه‌ی مهم مناسب است.</p>
+    <h3>چطور بهترین نتیجه را بگیرم؟</h3>
+    <p>در جای آرامی بنشین، شانه‌ها را رها کن و از بینی دم بگیر. اگر سرگیجه گرفتی، تمرین را متوقف کن و عادی نفس بکش. روزی سه تا پنج دقیقه تمرین منظم از یک جلسه‌ی طولانی گاه‌به‌گاه مفیدتر است.</p>
+  </section>
+
+  <footer>صداها همین‌جا در مرورگر ساخته می‌شوند و به اینترنت نیاز ندارند.</footer>
+</div>
+
+<script>
+(function(){
+const fa = n => String(n).replace(/\d/g, d => "۰۱۲۳۴۵۶۷۸۹"[d]);
+const $ = id => document.getElementById(id);
+
+const PATTERNS = [
+  {id:"calm", name:"آرام", steps:[["in",5],["out",5]], desc:"دم و بازدم برابر، ۵ ثانیه. برای شروع و آرام کردن ذهن مناسب است."},
+  {id:"box", name:"جعبه‌ای", steps:[["in",4],["hold",4],["out",4],["hold2",4]], desc:"چهار مرحله‌ی ۴ ثانیه‌ای. برای تمرکز پیش از کار یا جلسه."},
+  {id:"478", name:"۴-۷-۸", steps:[["in",4],["hold",7],["out",8]], desc:"بازدم طولانی به آرامش بدن کمک می‌کند. برای قبل از خواب."},
+  {id:"sigh", name:"بازدم بلند", steps:[["in",4],["out",6]], desc:"بازدم کمی بلندتر از دم. برای وقت‌هایی که استرس داری."}
+];
+const LABEL = {in:["دم","از بینی آرام نفس بکش"], hold:["نگه دار","بدون فشار، آرام بمان"], out:["بازدم","آهسته از دهان بیرون بده"], hold2:["مکث","ریه‌ها خالی، آرام"]};
+const DURS = [1,3,5,10];
+const SOUNDS = [{id:"off",name:"بی‌صدا"},{id:"rain",name:"باران"},{id:"sea",name:"موج دریا"},{id:"wind",name:"باد"},{id:"forest",name:"جنگل"}];
+
+let pattern = PATTERNS[0], dur = 3, sound = "rain";
+let running = false, started = false, timer = null;
+let stepIdx = 0, stepLeft = 0, totalLeft = dur*60, cycles = 0;
+
+function chipGroup(el, items, isOn, onPick, sub){
+  el.innerHTML = "";
+  items.forEach(it=>{
+    const b = document.createElement("button");
+    b.className = "chip"; b.type = "button";
+    b.innerHTML = `<span>${it.name}</span>` + (sub ? `<small>${sub(it)}</small>` : "");
+    b.setAttribute("aria-pressed", isOn(it));
+    b.onclick = ()=>{ onPick(it); render(); };
+    el.appendChild(b);
+  });
+}
+function render(){
+  chipGroup($("patterns"), PATTERNS, p=>p===pattern, p=>{pattern=p; resetSession();}, p=>fa(p.steps.map(s=>s[1]).join("-")));
+  chipGroup($("durations"), DURS.map(d=>({id:d,name:fa(d)+" دقیقه"})), d=>d.id===dur, d=>{dur=d.id; resetSession();});
+  chipGroup($("sounds"), SOUNDS, s=>s.id===sound, s=>{sound=s.id; if(running) Audio.play(sound);});
+  $("pdesc").textContent = pattern.desc;
+}
+const fmt = s => fa(Math.floor(s/60)) + ":" + fa(String(s%60).padStart(2,"0"));
+
+const orb = $("orb");
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+function setOrb(kind, secs){
+  const scale = kind==="in" ? 1 : kind==="out" ? .55 : null;
+  if(scale===null) return;
+  orb.style.transition = reduce ? "none" : `transform ${secs}s cubic-bezier(.45,.05,.55,.95)`;
+  orb.style.transform = `scale(${scale})`;
+}
+function freezeOrb(){
+  const t = getComputedStyle(orb).transform;
+  orb.style.transition = "none"; orb.style.transform = t==="none" ? "" : t;
+}
+
+function enterStep(){
+  const [kind, secs] = pattern.steps[stepIdx];
+  stepLeft = secs;
+  $("phase").textContent = LABEL[kind][0];
+  $("hint").textContent = LABEL[kind][1];
+  $("count").textContent = fa(stepLeft);
+  setOrb(kind, secs);
+  Audio.chime(kind);
+}
+function tick(){
+  totalLeft--; stepLeft--;
+  $("left").textContent = fmt(Math.max(totalLeft,0));
+  if(totalLeft<=0){ finish(); return; }
+  if(stepLeft<=0){
+    stepIdx++;
+    if(stepIdx>=pattern.steps.length){ stepIdx=0; cycles++; $("cycles").textContent = fa(cycles); }
+    enterStep();
+  } else $("count").textContent = fa(stepLeft);
+}
+function start(){
+  running = true; $("start").textContent = "مکث";
+  if(!started){ started = true; stepIdx = 0; enterStep(); }
+  else { const [kind] = pattern.steps[stepIdx]; setOrb(kind, stepLeft); }
+  timer = setInterval(tick, 1000);
+  Audio.play(sound);
+  try{ navigator.wakeLock && navigator.wakeLock.request("screen").catch(()=>{}); }catch(e){}
+}
+function pause(){
+  running = false; clearInterval(timer); freezeOrb();
+  $("start").textContent = "ادامه"; $("hint").textContent = "مکث شد";
+  Audio.stop();
+}
+function finish(){
+  clearInterval(timer); running = false; started = false;
+  $("phase").textContent = "تمام شد"; $("count").textContent = "✓";
+  $("hint").textContent = `${fa(cycles)} دور نفس کشیدی. آفرین.`;
+  $("start").textContent = "دوباره"; setOrb("out", 2);
+  Audio.fadeOut(); totalLeft = dur*60; cycles = 0;
+}
+function resetSession(){
+  clearInterval(timer); running = false; started = false;
+  totalLeft = dur*60; cycles = 0; stepIdx = 0;
+  $("left").textContent = fmt(totalLeft); $("cycles").textContent = fa(0);
+  $("phase").textContent = "آماده‌ای؟"; $("count").textContent = fa(pattern.steps[0][1]);
+  $("hint").textContent = "راحت بنشین، شانه‌ها رها"; $("start").textContent = "شروع";
+  orb.style.transition = "transform .8s ease"; orb.style.transform = "scale(.55)";
+  Audio.stop();
+}
+$("start").onclick = ()=>{ if(running) pause(); else { if(!started){ $("cycles").textContent=fa(0); $("left").textContent=fmt(totalLeft); } start(); } };
+$("reset").onclick = resetSession;
+
+/* ---------- Nature sounds with Web Audio ---------- */
+const Audio = (()=>{
+  let ctx=null, master=null, nodes=[], birdTimer=null;
+  function ensure(){
+    if(!ctx){
+      const AC = window.AudioContext || window.webkitAudioContext; if(!AC) return false;
+      ctx = new AC(); master = ctx.createGain(); master.gain.value = vol(); master.connect(ctx.destination);
+    }
+    if(ctx.state==="suspended") ctx.resume();
+    return true;
+  }
+  const vol = ()=> Math.pow($("vol").value/100, 1.6) * .9;
+  function noise(type){
+    const len = ctx.sampleRate*4, buf = ctx.createBuffer(1,len,ctx.sampleRate), d = buf.getChannelData(0);
+    let last=0,b0=0,b1=0,b2=0;
+    for(let i=0;i<len;i++){
+      const w = Math.random()*2-1;
+      if(type==="brown"){ last=(last+.02*w)/1.02; d[i]=last*3.5; }
+      else if(type==="pink"){ b0=.99765*b0+w*.099; b1=.963*b1+w*.2965; b2=.57*b2+w*1.0527; d[i]=(b0+b1+b2+w*.1848)*.12; }
+      else d[i]=w*.5;
+    }
+    const s = ctx.createBufferSource(); s.buffer = buf; s.loop = true; return s;
+  }
+  function filt(type,f,q){ const n=ctx.createBiquadFilter(); n.type=type; n.frequency.value=f; if(q) n.Q.value=q; return n; }
+  function lfo(rate, depth, target){ const o=ctx.createOscillator(), g=ctx.createGain(); o.frequency.value=rate; g.gain.value=depth; o.connect(g).connect(target); o.start(); nodes.push(o); }
+  function chain(src, list, gainVal){
+    const g = ctx.createGain(); g.gain.value = gainVal;
+    let cur = src; list.forEach(n=>{cur.connect(n); cur=n;}); cur.connect(g).connect(master);
+    src.start(); nodes.push(src); return g;
+  }
+  function bird(){
+    const t = ctx.currentTime, o = ctx.createOscillator(), g = ctx.createGain();
+    const base = 2200 + Math.random()*1800, n = 2 + Math.floor(Math.random()*4);
+    o.type="sine"; g.gain.value=0;
+    for(let i=0;i<n;i++){
+      const s=t+i*.13;
+      o.frequency.setValueAtTime(base,s); o.frequency.exponentialRampToValueAtTime(base*(1.3+Math.random()*.4), s+.08);
+      g.gain.setValueAtTime(0,s); g.gain.linearRampToValueAtTime(.035,s+.02); g.gain.linearRampToValueAtTime(0,s+.1);
+    }
+    o.connect(g).connect(master); o.start(t); o.stop(t+n*.13+.1);
+    birdTimer = setTimeout(bird, 2500 + Math.random()*6000);
+  }
+  function play(kind){
+    stop(); if(!ensure()) return;
+    if(kind==="off"){ master.gain.cancelScheduledValues(ctx.currentTime); master.gain.value = vol(); return; }
+    master.gain.cancelScheduledValues(ctx.currentTime);
+    master.gain.setValueAtTime(0, ctx.currentTime); master.gain.linearRampToValueAtTime(vol(), ctx.currentTime+2);
+    if(kind==="rain"){
+      chain(noise("white"), [filt("highpass",900), filt("lowpass",7000)], .35);
+      chain(noise("pink"), [filt("lowpass",500)], .5);
+    } else if(kind==="sea"){
+      const g = chain(noise("brown"), [filt("lowpass",900)], .45); lfo(.09,.35,g.gain);
+      const g2 = chain(noise("pink"), [filt("bandpass",1800,.7)], .08); lfo(.09,.07,g2.gain);
+    } else if(kind==="wind"){
+      const bp = filt("bandpass",500,1.4); const g = chain(noise("pink"), [bp], .9);
+      lfo(.06,260,bp.frequency); lfo(.13,.35,g.gain);
+    } else if(kind==="forest"){
+      const g = chain(noise("pink"), [filt("lowpass",1200)], .35); lfo(.05,.12,g.gain);
+      birdTimer = setTimeout(bird, 1200);
+    }
+  }
+  function stop(){
+    clearTimeout(birdTimer);
+    nodes.forEach(n=>{ try{n.stop()}catch(e){} }); nodes=[];
+  }
+  function fadeOut(){
+    if(!ctx) return; master.gain.linearRampToValueAtTime(0, ctx.currentTime+3); setTimeout(stop, 3200);
+  }
+  function chime(kind){
+    if(!ctx || ctx.state!=="running") return;
+    const t=ctx.currentTime, o=ctx.createOscillator(), g=ctx.createGain();
+    o.type="sine"; o.frequency.value = kind==="in" ? 528 : kind==="out" ? 396 : 440;
+    g.gain.setValueAtTime(0,t); g.gain.linearRampToValueAtTime(.06,t+.02); g.gain.exponentialRampToValueAtTime(.0001,t+1.6);
+    o.connect(g).connect(master); o.start(t); o.stop(t+1.7);
+  }
+  $("vol").addEventListener("input", ()=>{ if(master) master.gain.setTargetAtTime(vol(), ctx.currentTime, .1); });
+  return {play, stop, fadeOut, chime};
+})();
+
+render(); resetSession();
+})();
+</script>
+</body>
+</html>

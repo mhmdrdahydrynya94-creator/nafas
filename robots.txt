@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mhmdrdahydrynya94-creator.github.io/nafas/sitemap.xml
